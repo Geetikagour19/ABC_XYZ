@@ -1,0 +1,51 @@
+package abc.xyz.binarytree;
+
+public class ConstructTree_InLevel {
+
+	Node root;
+	
+	static int lvlIndex = 0;
+	Node buildTree1(int in[], int level[], int inStart, int inEnd){
+		
+		if(inStart > inEnd)
+			return null;
+		Node node = new Node(in[lvlIndex++]);
+		
+		if(inStart == inEnd)
+			return node;
+		
+		int inIndex = search(in, inStart, inEnd, node.data);
+	
+		node.left=buildTree1(in, level, inStart, inIndex-1);
+		node.right=buildTree1(in, level, inIndex+1, inEnd);
+		return node;
+	}
+	
+	int search(int in[], int start, int end, int value){
+		int i;
+		for(i = start; i<= end; i++){
+			if(in[i] == value)
+				return i;
+		}
+		return i;
+	}
+	
+	void printInorder(Node node){
+		if(node == null) return;
+		printInorder(node.left);
+		System.out.print(node.data + " ");
+		printInorder(node.right);
+	}
+	public static void main(String args[]) 
+    {
+		ConstructTree_InLevel tree = new ConstructTree_InLevel();
+        int in[] = new int[]{4, 8, 10, 12, 14, 20, 22};
+        int level[] = new int[]{20, 8, 22, 4, 12, 10, 14};
+        int len = in.length;
+        Node node = tree.buildTree1(in, level, 0, len - 1);
+  
+        /* Let us test the built tree by printing Inorder traversal */
+        System.out.print("Inorder traversal of the constructed tree is ");
+        tree.printInorder(node);
+    }
+}

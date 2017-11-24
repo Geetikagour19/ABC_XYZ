@@ -1,0 +1,49 @@
+package abc.xyz.binarytree;
+
+public class FindMax {
+
+	Node root;
+	
+	int findMax(Node node){
+		if(node == null) return Integer.MIN_VALUE;
+		int res = node.data;
+		int l = findMax(node.left);
+		int r = findMax(node.right);
+		
+		if(l > res)
+			res = l;
+		if( r > res)
+			res = r;
+		return res;
+		
+	}
+	
+	int findMin(Node node){
+		if(node == null) return Integer.MAX_VALUE;
+		int res = node.data;
+		int l = findMin(node.left);
+		int r = findMin(node.right);
+		if(l<res)
+			res = l;
+		if(r<res)
+			res = r;
+		return res;
+	}
+	public static void main(String args[])
+    {
+		FindMax tree = new FindMax();
+        tree.root = new Node(2);
+        tree.root.left = new Node(7);
+        tree.root.right = new Node(5);
+        tree.root.left.right = new Node(6);
+        tree.root.left.right.left = new Node(1);
+        tree.root.left.right.right = new Node(11);
+        tree.root.right.right = new Node(9);
+        tree.root.right.right.left = new Node(4);
+ 
+        System.out.println("Maximum element is " +
+                         tree.findMax(tree.root));
+        System.out.println("Minimum element is " +
+                tree.findMin(tree.root));
+    }
+}
