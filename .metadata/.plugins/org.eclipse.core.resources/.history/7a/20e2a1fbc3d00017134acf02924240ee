@@ -1,0 +1,79 @@
+package abc.xyz.binarytree;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+class ListNode{
+	int data;
+	ListNode next;
+	ListNode(int d){
+		data = d;
+		next = null;
+	}
+}
+
+
+public class BinaryTreeFromLinkedList {
+
+	Node root;
+	ListNode head;
+	
+	void push(int data){
+		ListNode new_node = new ListNode(data);
+		new_node.next = null;
+		head = new_node;
+	}
+	
+	Node convertList2Binary(Node node){
+		Queue<Node> q = new LinkedList<Node>();
+		if(head == null){
+			node = null;
+			return null;
+		}
+		
+		node = new Node(head.data);
+		q.add(node);
+		head = head.next;
+		
+		while(head != null){
+			Node parent =q.peek();
+			//Node pp =q.poll();
+			q.poll();
+			Node leftChild = null, rightChild = null;
+			
+			leftChild = new Node(head.data);
+			q.add(leftChild);
+			head = head.next;
+			if(head != null){
+				rightChild = new Node(head.data);
+				q.add(rightChild);
+				head=head.next;
+			}
+			parent.left = leftChild;
+			parent.right = rightChild;
+		}
+		return node;
+	}
+	
+	void printInorder(Node node){
+		if(node == null) return;
+		printInorder(node.left);
+		System.out.print(node.data + " ");
+		printInorder(node.right);
+	}
+	 public static void main(String[] args) 
+	    {
+		 BinaryTreeFromLinkedList tree = new BinaryTreeFromLinkedList();
+	        tree.push(36); /* Last node of Linked List */
+	        tree.push(30);
+	        tree.push(25);
+	        tree.push(15);
+	        tree.push(12);
+	        tree.push(10); /* First node of Linked List */
+	        Node node = tree.convertList2Binary(tree.root);
+	  
+	        System.out.println("Inorder Traversal of the"+
+	                        " constructed Binary Tree is:");
+	        tree.printInorder(node);
+	    }
+}

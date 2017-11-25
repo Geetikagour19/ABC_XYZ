@@ -1,0 +1,60 @@
+package abc.xyz.binarytree;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class CompleteTree {
+
+	Node root;
+	
+	static boolean isCompleteTree(Node node){
+		
+		if(node == null)
+			return true;
+		Queue<Node> q = new LinkedList<Node>();
+		boolean flag = false;
+		
+		q.add(node);
+		
+		while(!q.isEmpty()){
+			Node temp = q.remove();
+			
+			if(temp.left != null){
+				if(flag == true)
+					return false;
+			}
+			
+			if(temp.right != null){
+				if(flag == true)
+					return false;
+			}
+			
+		}
+		
+		return true;
+	}
+	public static void main(String[] args) 
+    {
+         
+        /* Let us construct the following Binary Tree which
+          is not a complete Binary Tree
+                1
+              /   \
+             2     3
+            / \     \
+           4   5     6
+        */
+      
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.right = new Node(6);
+         
+        if(isCompleteBT(root) == true)
+            System.out.println("Complete Binary Tree");
+        else
+            System.out.println("NOT Complete Binary Tree");
+     }
+}

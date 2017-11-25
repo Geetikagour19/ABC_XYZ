@@ -1,0 +1,39 @@
+package abc.xyz.binarytree;
+
+class ListNode{
+	int data;
+	ListNode next;
+	ListNode(int d){
+		data = d;
+		next = null;
+	}
+}
+
+
+public class BinaryTreeFromLinkedList {
+
+	Node root;
+	ListNode = head;
+	
+	void printInorder(Node node){
+		if(node == null) return;
+		printInorder(node.left);
+		System.out.print(node.data + " ");
+		printInorder(node.right);
+	}
+	 public static void main(String[] args) 
+	    {
+		 BinaryTreeFromLinkedList tree = new BinaryTreeFromLinkedList();
+	        tree.push(36); /* Last node of Linked List */
+	        tree.push(30);
+	        tree.push(25);
+	        tree.push(15);
+	        tree.push(12);
+	        tree.push(10); /* First node of Linked List */
+	        Node node = tree.convertList2Binary(tree.root);
+	  
+	        System.out.println("Inorder Traversal of the"+
+	                        " constructed Binary Tree is:");
+	        tree.printInorder(node);
+	    }
+}

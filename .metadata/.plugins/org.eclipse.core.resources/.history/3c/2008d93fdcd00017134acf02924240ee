@@ -1,0 +1,60 @@
+package abc.xyz.binarytree;
+
+/*class Index{
+	int index =0;
+}*/
+public class CunstructTree_Special {
+	//Index myIndex = new Index();
+	static int index =0;
+	Node root;
+	Node constructTreeUtil(int pre[], char preLN[], int n, Node node){
+		if(index == n)
+			return null;
+		node = new Node(pre[index]);
+		index++;
+		if(preLN[index] == 'N')
+		{
+			node.left = constructTreeUtil(pre, preLN, n, node.left);
+			node.right = constructTreeUtil(pre, preLN, n, node.right);
+		}
+		return node;
+	}
+	
+	Node constructTree(int pre[], char preLN[], int n, Node node){
+		int index = 0;
+		return constructTreeUtil(pre, preLN, n, node);
+	}
+	
+	void printInorder(Node node) 
+    {
+        if (node == null)
+            return;
+  
+        /* first recur on left child */
+        printInorder(node.left);
+  
+        /* then print the data of node */
+        System.out.print(node.data + " ");
+  
+        /* now recur on right child */
+        printInorder(node.right);
+    }
+  
+    // driver function to test the above functions
+    public static void main(String args[]) 
+    {
+    	CunstructTree_Special tree = new CunstructTree_Special();
+        int pre[] = new int[]{10, 30, 20, 5, 15};
+        char preLN[] = new char[]{'N', 'N', 'L', 'L', 'L'};
+        int n = pre.length;
+  
+        // construct the above tree
+        Node mynode = tree.constructTree(pre, preLN, n, tree.root);
+  
+        // Test the constructed tree
+        System.out.println("Following is Inorder Traversal of the" 
+                                      + "Constructed Binary Tree: ");
+        tree.printInorder(mynode);
+    }
+
+}

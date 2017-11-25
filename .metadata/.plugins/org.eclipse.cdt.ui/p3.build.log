@@ -1,0 +1,6 @@
+22:12:39 **** Incremental Build of configuration Debug for project p3 ****
+make all 
+g++ obj/src/p3.o obj/src/ThreadExample.o  -Iinclude -o bin/p3
+
+22:12:40 Build Finished (took 485ms)
+

@@ -1,0 +1,50 @@
+package abc.xyz.com;
+
+class en
+{
+	int i;
+}
+
+public class PassTypes {
+
+	
+	void swap(int a, int b)
+	{
+		int temp = a;
+		a = b;
+		b = temp;
+	}
+	
+	void swap(en e1, en e2)
+	{
+		int temp = e1.i;
+		e1.i = e2.i;
+		e2.i = temp;
+	}
+	
+	void swap2(en e1, en e2)
+	{
+		en temp = e1;
+		e1  = e2;
+		e2 = temp;
+	}
+		
+	public static void main(String args[])
+	{
+		PassTypes p = new PassTypes();
+		
+		int x = 2, y = 5;
+		en e1 = new en();
+		en e2 = new en();
+		
+		e1.i = x;
+		e2.i = y;
+		
+		System.out.println(x + " " + y + " " + e1.i + " " + e2.i);
+		p.swap(x, y);
+//		p.swap(e1, e2);
+//		System.out.println(x + " " + y + " " + e1.i + " " + e2.i);
+		p.swap2(e1, e2);
+		System.out.println(x + " " + y + " " + e1.i + " " + e2.i);
+	}
+}

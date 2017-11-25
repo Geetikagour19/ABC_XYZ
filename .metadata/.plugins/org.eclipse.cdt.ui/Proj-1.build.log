@@ -1,0 +1,13 @@
+14:34:45 **** Incremental Build of configuration Debug for project Proj-1 ****
+Info: Configuration "Debug" uses tool-chain "MinGW GCC" that is unsupported on this system, attempting to build anyway.
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o "src\\Proj-1.o" "..\\src\\Proj-1.cpp" 
+g++ -o Proj-1.exe "src\\Proj-1.o" 
+d:/mingw/bin/../lib/gcc/mingw32/4.8.1/../../../../mingw32/bin/ld.exe: cannot find -ladvapi32
+d:/mingw/bin/../lib/gcc/mingw32/4.8.1/../../../../mingw32/bin/ld.exe: cannot find -lshell32
+d:/mingw/bin/../lib/gcc/mingw32/4.8.1/../../../../mingw32/bin/ld.exe: cannot find -luser32
+d:/mingw/bin/../lib/gcc/mingw32/4.8.1/../../../../mingw32/bin/ld.exe: cannot find -lkernel32
+collect2.exe: error: ld returned 1 exit status
+
+14:34:46 Build Finished (took 1s.633ms)
+
