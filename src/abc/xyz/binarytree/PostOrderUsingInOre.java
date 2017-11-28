@@ -1,5 +1,7 @@
 package abc.xyz.binarytree;
 
+import java.util.Arrays;
+
 public class PostOrderUsingInOre {
 	
 	static int search(int arr[], int x, int n){
@@ -10,11 +12,23 @@ public class PostOrderUsingInOre {
 		return -1;
 	}
 	static void printPostOrder(int in[], int pre[], int n){
-		int startIndex = search(in, pre[0],n);
+		int index = search(in, pre[0],n);
 		
-		if(startIndex != 0){
+		int tempIn[], tempPre[];
+		if(index != 0){
+			tempPre = Arrays.copyOfRange(pre, 1 , pre.length);
+			printPostOrder(in, tempPre, index);
 		//	printPostOrder(in, , startIndex);
 		}
+		
+		if(index != n-1){
+			tempPre = Arrays.copyOfRange(pre, index+1, pre.length);
+			tempIn = Arrays.copyOfRange(in, index+1, in.length);
+			
+			printPostOrder(tempIn, tempPre, n-index-1);
+			}
+		
+		System.out.print(pre[0]+" ");
 	}
  public static void main(String args[]){
 	int in[] = {4, 2, 5, 1, 3, 6};
