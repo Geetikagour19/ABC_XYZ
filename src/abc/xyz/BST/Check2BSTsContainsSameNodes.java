@@ -20,6 +20,7 @@ public class Check2BSTsContainsSameNodes {
 			return false;
 		ArrayList<Integer> a1 = new ArrayList<Integer>();
 		ArrayList<Integer> a2 = new ArrayList<Integer>();
+		
 		insertToArray(n1, a1);
 		insertToArray(n2, a2);
 		
@@ -33,7 +34,7 @@ public class Check2BSTsContainsSameNodes {
 			System.out.println( a2.get(i) );
 		}
 		System.out.println();
-		for(int i = 0; i < a1.size(); ++i)
+		for(int i = 0; i < a1.size(); i++)
 		{
 			System.out.println(a1.get(i) + " " + a2.get(i) );
 			int x = a1.get(i);
