@@ -9,14 +9,14 @@ public class RemoveOutSideRange {
 		node.right = removeOutsideRange(node.right, min, max);
 		
 		if(node.data < min){
-			Node lchild = node.right;
-			node = null;
-			return lchild;
-		}
-		if(node.data > max){
-			Node rchild = node.left;
+			Node rchild = node.right;
 			node = null;
 			return rchild;
+		}
+		if(node.data > max){
+			Node lchild = node.left;
+			node = null;
+			return lchild;
 		}
 		return node;
 	}

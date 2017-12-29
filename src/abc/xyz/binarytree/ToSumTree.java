@@ -9,6 +9,7 @@ public class ToSumTree {
 		int old_val = node.data;
 		node.data = toSumTree(node.left)+ toSumTree(node.right);
 		return node.data+old_val;
+		//return node.data+toSumTree(node.left)+ toSumTree(node.right);
 	}
 	void printInorder(Node node) 
     {
