@@ -8,8 +8,8 @@ public class WidCraedPetternMatching {
 		if(m==0)
 			return (n==0);
 		boolean[][]lookup=new boolean[n+1][m+1];
-		for(int i =0;i<n+1;i++)
-			Arrays.fill(lookup[i],	false);
+		/*for(int i =0;i<n+1;i++)
+			Arrays.fill(lookup[i],	false);*/
 		lookup[0][0]=true;
 		for (int j = 1; j <= m; j++)
             if (pettern.charAt(j - 1) == '*')

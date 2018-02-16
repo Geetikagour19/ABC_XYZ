@@ -6,12 +6,12 @@ public class CelebrityProblem {
 
 	 static int MATRIX[][] = { { 0, 0, 0, 1 },
          { 0, 0, 0, 1 },
-         { 0, 0, 0, 1 }, 
+         { 0, 0, 0, 1}, 
          { 0, 0, 0, 1 } };
 	 
 	 static boolean knows(int a , int b ){
-		 boolean res = MATRIX[a][b]==1 ? true  : false;
-		 return res;
+		return MATRIX[a][b]==1 ? true  : false;
+		 
 	 }
 	 static int findCelebrity(int n){
 		 Stack<Integer> s = new Stack<Integer>();

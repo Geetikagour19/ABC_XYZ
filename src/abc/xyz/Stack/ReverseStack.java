@@ -4,38 +4,39 @@ import java.util.Stack;
 
 public class ReverseStack {
 
-	static Stack<Character> st = new Stack<>();
-	static void insertAtBottom(char x){
+	//static Stack<Character> st = new Stack<>();
+	static void insertAtBottom(Stack<Integer> st, int x){
 			if(st.isEmpty())
 				st.push(x);
 			else
 			{
-				char a = st.pop();
-				insertAtBottom(x);
+				int a = st.pop();
+				insertAtBottom(st, x);
 				st.push(a);
 			}
 	}
-	static void revers(){
+	static void revers(Stack<Integer> st){
 		if(!st.isEmpty()){
-			char x = st.pop();
-			revers();
-			insertAtBottom(x);
+			int x = st.pop();
+			revers(st);
+			insertAtBottom(st,x);
 		}
 	}
 	public static void main(String[] args) 
     {
          //push elements into the stack
-        st.push('1');
-        st.push('2');
-        st.push('3');
-        st.push('4');
+		Stack<Integer> st = new Stack<Integer>();
+        st.push(5);
+        st.push(2);
+        st.push(10);
+        st.push(4);
          
         System.out.println("Original Stack");
          
         System.out.println(st);
          
         //function to reverse the stack
-        revers();
+        revers(st);
          
         System.out.println("Reversed Stack");
          

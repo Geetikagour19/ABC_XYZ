@@ -12,11 +12,11 @@ public class NextGenElement {
 		
 		for(i=1;i<n;i++){
 			next = arr[i];
-			if(s.isEmpty()==false){
+			if(!s.isEmpty()){
 				element = s.pop();
 				while(element < next){
 					System.out.println(element + "----> "+ next);
-					if(s.isEmpty()==true)
+					if(s.isEmpty())
 						break;
 					element = s.pop();
 				}
@@ -25,7 +25,7 @@ public class NextGenElement {
 			}
 			s.push(next);
 		}
-		while(s.isEmpty()==false){
+		while(!s.isEmpty()){
 			element = s.pop();
 			next = -1;
 			System.out.println(element + "----> "+ next);

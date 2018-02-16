@@ -50,7 +50,7 @@ public class StackUsingQueue {
             System.out.print("Empty\n");
         else
         {
-            Iterator it = q.iterator();
+            Iterator<Integer> it = q.iterator();
             while (it.hasNext())
                 System.out.print(it.next()+" ");
             System.out.println();
